@@ -1,7 +1,15 @@
-async function getResponse() {
-    let response = await fetch('https://rickandmortyapi.com/api/character/1,183')
-    let content = await response.text()
-    console.log(content)
-}
+fetch('https://rickandmortyapi.com/api/character/?page=19')
+    .then(function(response){return response.json()})
+    .then(function(data) {
+        console.log(data);
+        document.querySelector('.info'). textContent = data.results[1].status;
+        document.querySelector('.info2'). textContent = data.results[4].episode[3];
+        })
 
-getResponse()
+    .catch(function() {
+
+    });
+
+
+
+
